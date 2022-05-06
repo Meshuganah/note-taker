@@ -1,5 +1,5 @@
 {
-  "notesArray": [
+  "notes": [
     {
       "id": "1",
       "title": "Test Title",
@@ -14,6 +14,16 @@
       "title": "Test again",
       "text": "Test again",
       "id": "2"
+    },
+    {
+      "title": "Id test",
+      "text": "test",
+      "id": "adc0a5f3-877a-4eb7-8697-c0b26d7f778d"
+    },
+    {
+      "title": "Refresh test",
+      "text": "Fingers crossed!!!!",
+      "id": "c4fb17b8-5c32-4c2d-a7a8-27c1fdc83c29"
     }
   ]
 }

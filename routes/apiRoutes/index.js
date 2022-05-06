@@ -1,16 +1,17 @@
 const fs = require('fs');
 const path = require('path');
+const { v4: uuidv4 } = require('uuid');
 const router = require('express').Router();
 const { notes } = require('../../db/db.json');
 
-function createNote(body, notesArray) {
-    const note = body;
-    notesArray.push(note);
+function createNote(body, notes) {
+    const newNote = body;
+    notes.push(newNote);
     fs.writeFileSync(
         path.join(__dirname, '../../db/db.json'),
-        JSON.stringify({ notesArray }, null, 2)
+        JSON.stringify({ notes }, null, 2)
     );
-    return note;
+    return newNote;
 };
 
 router.get('/notes', (req, res) => {
@@ -20,7 +21,7 @@ router.get('/notes', (req, res) => {
 });
 
 router.post('/notes', (req, res) => {
-    req.body.id = notes.length.toString();
+    req.body.id = uuidv4().toString();
 
     const note = createNote(req.body, notes);
     res.json(note);
